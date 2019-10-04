@@ -1,0 +1,36 @@
+
+#include <bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int n;
+    cin>>n;
+    int arr[n],i;
+    for(i=1;i<=n;i++)
+        cin>>arr[i];
+    int t,l,r;
+    cin>>t;
+    
+    while(t--)
+    {
+        int j,ma[2],res=0;
+        map<int,vector<int>> m;
+        cin>>l>>r;
+        for(i=l;i<=r;i++)
+        m[arr[i]].push_back(i);
+        map<int,vector<int>> :: iterator it;
+        i=0;
+        for (it=m.begin(); it!=m.end(); it++)
+        {
+            ma[i]=abs(it->second.begin()-it->second.end());
+            i++;
+        }
+        res=max(ma[0],ma[1]);
+        if(res!=1)
+        cout<<res<<endl;
+        else
+        cout<<"0"<<endl;
+        }
+        
+    return 0;
+}
